@@ -17,7 +17,7 @@ if ($amount < 1 || $amount > 100000) {
     echo 'Amount should be in 1-100000';
 } else {
     $result = getMoney($bills, $amount);
-    print_r($result);
+    outpResult($result);
 }
 
 function getMoney($bills, $amount)
@@ -31,4 +31,10 @@ function getMoney($bills, $amount)
         }
     }
     return $result;
+}
+
+function outpResult($result){
+    foreach ($result as $key => $value) {
+        echo $key . " : " . $value . PHP_EOL;
+    }
 }
