@@ -2,7 +2,7 @@
 
 $argv = $_SERVER['argv'];
 
-if (!empty($argv[1]) || $argv[1] % 2 === 1) {
+if (!empty($argv[1]) && $argv[1] % 2 === 1) {
     drawDiamond($argv[1]);
 } else {
     echo 'Argument should be even number >= 1', PHP_EOL;
