@@ -12,18 +12,19 @@ class LNode
     }
 }
 
-function processLists($node1, $node2){
+function processLists($node1, $node2)
+{
     $excess = 0;
     $nodeResultHead = null;
     $currentNode = null;
 
-    if (empty($node1)&&empty($node2)){
+    if (empty($node1) && empty($node2)) {
         throw Exception("Empty");
     } else {
-        while (!empty($node1)||(!empty($node2))||$excess === 1){
+        while (!empty($node1) || (!empty($node2)) || $excess === 1) {
             $term1 = empty($node1) ? 0 : $node1->value;
             $term2 = empty($node2) ? 0 : $node2->value;
-            goNext($node1,$node2);
+            goNext($node1, $node2);
             $newNode = sumIntoNode($term1, $term2, $excess);
 
             if (empty($nodeResultHead)) {
@@ -47,7 +48,7 @@ function sumIntoNode($value1, $value2, &$excess)
 
 function printList($node)
 {
-    while (!empty($node)){
+    while (!empty($node)) {
         echo $node->value, ' ';
         $node = $node->next;
     }
@@ -66,7 +67,7 @@ function goNext(&$node1, &$node2)
 
 function fillList(...$args)
 {
-    if (empty($args)){
+    if (empty($args)) {
         throw Exception('No parameters');
     } else {
         $nodeResultHead = null;
