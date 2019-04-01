@@ -1,29 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: hp
+ * Date: 01.04.2019
+ * Time: 17:26
+ */
 
-class ConfigSingle
+require_once 'Singleton.php';
+
+class ConfigSingle extends Singleton
 {
     private $status = 'online';
     private $url = 'https://www.google.com.ua';
-    private static $_instance = null;
-
-    private function __construct()
-    {
-    }
-
-    private function __clone()
-    {
-    }
-
-    private function __wakeup()
-    {
-    }
-
-    static public function getInstance()
-    {
-        return is_null(self::$_instance)
-            ? new self()
-            : self::$_instance;
-    }
 
     /**
      * @return string
@@ -56,6 +44,4 @@ class ConfigSingle
     {
         $this->status = $status;
     }
-
 }
-
