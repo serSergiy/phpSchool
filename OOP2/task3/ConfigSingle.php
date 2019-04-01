@@ -1,25 +1,61 @@
-class ConfigSingle {
-private $status = 'online';
-private $url = 'https://www.google.com.ua';
-private static $_instance = null;
+<?php
 
-private function __construct()
+class ConfigSingle
 {
-}
+    private $status = 'online';
+    private $url = 'https://www.google.com.ua';
+    private static $_instance = null;
 
-private function __clone()
-{
-}
+    private function __construct()
+    {
+    }
 
-private function __wakeup()
-{
-}
+    private function __clone()
+    {
+    }
 
-static public function getInstance()
-{
-return is_null(self::$_instance)
-? new self()
-: self::$_instance;
-}
+    private function __wakeup()
+    {
+    }
+
+    static public function getInstance()
+    {
+        return is_null(self::$_instance)
+            ? new self()
+            : self::$_instance;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
 }
 
